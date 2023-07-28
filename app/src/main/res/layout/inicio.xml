@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado"
+    tools:context=".proyectofinal.ui.home.InicioFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPublication"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/fondo_degradado"
+        android:scrollbars="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="404dp"
+        android:layout_height="110dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="93dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imageViewPerfil"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="3dp"
+                android:src="@drawable/ic_baseline_account_circle_24"
+                app:civ_border_color="@color/degradado"
+                app:civ_border_width="2.5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="42dp"
+                android:layout_height="38dp"
+                android:background="@drawable/add3"
+                app:layout_constraintBottom_toBottomOf="@+id/imageViewPerfil"
+                app:layout_constraintEnd_toEndOf="@+id/imageViewPerfil"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/imageViewPerfil"
+                app:layout_constraintVertical_bias="0.933"
+                app:tint="@color/black" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="Tu historia"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageViewPerfil" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerHistorias"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="1dp"
+            android:scrollbars="horizontal" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/perfilDeUsuariosFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".proyectofinal.ui.PerfilUsuarios.PerfilDeUsuario">
+
+    <!--Top Linear Layout having photo,posts,follower,following-->
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_width="match_parent"
+        android:layout_height="137dp"
+        android:orientation="horizontal"
+        android:weightSum="100">
+        <!--android:layout_below="@+id/profileToolBar"-->
+
+        <!--Photo relative layout-->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:layout_weight="25">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imagenPerfilDeUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="0dp"
+                android:background="@color/icontint"
+                android:src="@drawable/ic_baseline_account_circle_24"
+                app:civ_border_color="@color/blue_link"
+                app:civ_border_width="1.5dp" />
+
+
+        </RelativeLayout>
+
+        <!--post,follower,editprofile Relative layout-->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="75">
+
+            <LinearLayout
+                android:layout_width="274dp"
+                android:layout_height="126dp"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="94dp"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="33"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/publicacionesPerfilUsuario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:background="@android:color/transparent"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Post"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/FragmentProfile_followerLinearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="33"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/seguidoresUsuario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:background="@android:color/transparent"
+                            android:text="0"
+                            android:textColor="#FFFFFF"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Follow"
+                            android:textColor="#FFFEFE"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/FragmentProfile_followingLinearLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="33"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/siguiendoUsuario"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:background="@android:color/transparent"
+                            android:text="0"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:text="Following"
+                            android:textColor="#F6EEEE"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="387dp"
+        android:layout_height="123dp"
+        android:layout_below="@id/linear1"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nombrePerfilUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="Name"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/descripcionUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:maxLines="3"
+            android:text="Description"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:padding="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/seguir"
+                android:layout_width="134dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/fondo_degradado"
+                android:fontFamily="serif-monospace"
+                android:text="Seguir"
+                android:textSize="20sp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/def"
+                android:layout_width="19dp"
+                android:textSize="20sp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:text="" />
+
+            <Button
+                android:id="@+id/mensaje"
+                android:layout_width="121dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/fondo_degradado"
+                android:fontFamily="serif-monospace"
+                android:text="Mensaje"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <!--Horizontal gray line-->
+    <TableRow
+        android:id="@+id/hr"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/linear2"
+        android:layout_marginTop="10dp"
+        android:background="@color/white" />
+
+    <!--Bottom relative layout-->
+    <RelativeLayout
+        android:id="@+id/relativeFotos"
+        android:layout_width="match_parent"
+        android:layout_height="461dp"
+        android:layout_below="@+id/hr">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPublicacionesUsuarios"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:visibility="visible">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

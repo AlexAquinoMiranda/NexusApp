@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".proyectofinal.Historia.Historia">
+
+    <ImageView
+        android:id="@+id/imagenHistoria"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/icontint"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        tools:src="@android:drawable/screen_background_dark" />
+
+    <LinearLayout
+        android:id="@+id/linearProgress"
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progressBarHistoria"
+            style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+            android:layout_width="10dp"
+            android:layout_height="34dp"
+            android:layout_weight="1"
+            android:background="@color/black"
+            android:max="100"
+            android:progress="0"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/historiaAtras"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <ProgressBar
+            android:id="@+id/progresoCargaImagen"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="147dp"
+            android:layout_height="718dp"
+            android:visibility="visible" />
+
+        <View
+            android:id="@+id/historiaDelante"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/icontint" />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="211dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/perfilUsuarioHistoria"
+            android:layout_width="64dp"
+            android:layout_height="76dp"
+            android:layout_centerVertical="true"
+            android:background="@color/icontint"
+            android:src="@drawable/ic_baseline_account_circle_24"
+            app:civ_border_color="@color/blue_link"
+            app:civ_border_width="1.5dp"/>
+
+        <TextView
+            android:id="@+id/Historia_NombreUsuario"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@id/perfilUsuarioHistoria"
+            android:text="username"
+            android:textColor="#fff"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/deleteHistory"
+        android:layout_width="97dp"
+        android:layout_height="43dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#20000000"
+        android:padding="3dp"
+        android:visibility="invisible"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
+</RelativeLayout>

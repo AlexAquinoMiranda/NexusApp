@@ -1,0 +1,12 @@
+<resources>
+    <string name="nombreApp">Nexus</string>
+    <string name="tituloInicio">Inicio</string>
+    <string name="tituloPanel">Paneles</string>
+    <string name="tituloPerfil">Perfil</string>
+    <string name="tituloBusqueda">Búsqueda</string>
+    <string name="tituloEventos">Eventos</string>
+    <string name="tituloPublicar">Publicar</string>
+    <string name="Notificaciones">Notificaciones</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

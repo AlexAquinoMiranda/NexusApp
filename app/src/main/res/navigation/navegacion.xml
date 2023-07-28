@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navegacionInicio">
+
+    <fragment
+        android:id="@+id/navegacionInicio"
+        android:name="com.example.nexusapp.proyectofinal.ui.home.InicioFragment"
+        android:label="@string/tituloInicio"
+        tools:layout="@layout/inicio" />
+
+    <fragment
+        android:id="@+id/navegacionBusqueda"
+        android:name="com.example.nexusapp.proyectofinal.ui.busqueda.BusquedaFragment"
+        android:label="@string/tituloBusqueda"
+        tools:layout="@layout/fragment_buscar" />
+
+    <fragment
+        android:id="@+id/navegacionEventos"
+        android:name="com.example.nexusapp.proyectofinal.ui.eventos.EventosFragment"
+        android:label="@string/tituloEventos"
+        tools:layout="@layout/fragment_crear_evento" />
+
+    <fragment
+        android:id="@+id/navegacionPaneles"
+        android:name="com.example.nexusapp.proyectofinal.ui.paneles.PanelesFragment"
+        android:label="@string/tituloPanel"
+        tools:layout="@layout/subir_publicacion" />
+
+    <fragment
+        android:id="@+id/navegacionPerfil"
+        android:name="com.example.nexusapp.proyectofinal.ui.perfil.PerfilFragment"
+        android:label="@string/tituloPerfil"
+        tools:layout="@layout/perfil" />
+    <fragment
+        android:id="@+id/perfilDeUsuariosF"
+        android:name="com.example.nexusapp.proyectofinal.ui.PerfilUsuarios.PerfilDeUsuario"
+        android:label="perfilUsuarios"
+        tools:layout="@layout/fragment_perfil_de_usuario" />
+
+    <fragment
+        android:id="@+id/coment"
+        android:name="com.example.nexusapp.proyectofinal.Comentario.Comentario"
+        android:label="Comentario"
+        tools:layout="@layout/fragment_comentario" />
+
+</navigation>

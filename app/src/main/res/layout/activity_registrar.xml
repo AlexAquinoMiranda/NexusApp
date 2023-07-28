@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/fondobase"
+tools:context=".proyectofinal.Registrar.Registrar">
+
+    <TableRow
+        android:id="@+id/sr"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="20dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/nombreUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/letrasRegistro"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <LinearLayout
+    android:id="@+id/line"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="100"
+    app:layout_constraintBottom_toTopOf="@+id/iniciarSesion"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/cardView6">
+
+        <TableRow
+            android:id="@+id/hr"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="45"
+            android:background="#000000" />
+
+        <TextView
+            android:id="@+id/OR"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_weight="10"
+            android:text="O"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <TableRow
+            android:id="@+id/dr"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_weight="45"
+            android:background="#000000" />
+</LinearLayout>
+
+    <TextView
+        android:id="@+id/iniciarSesion"
+        android:layout_width="184dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="serif-monospace"
+        android:text="Inicia Sesion."
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6" />
+
+    <androidx.cardview.widget.CardView
+    android:id="@+id/cardView6"
+    android:layout_width="219dp"
+    android:layout_height="51dp"
+        android:layout_marginTop="40dp"
+
+    android:layout_marginBottom="10dp"
+    app:cardBackgroundColor="#FF1C2120"
+    app:cardCornerRadius="40dp"
+
+    app:cardElevation="50dp"
+    app:layout_constraintBottom_toTopOf="@+id/iniciarSesion"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/contraseñaRegistro">
+
+        <Button
+            android:id="@+id/btnRegistrar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boton_customizado"
+            android:text="Registrar"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+
+            android:textStyle="bold" />
+</androidx.cardview.widget.CardView>
+
+    <EditText
+        android:id="@+id/contraseñaRegistro"
+        android:layout_width="260dp"
+        android:layout_height="53dp"
+        android:autofillHints="TO DO"
+        android:background="@drawable/text_customizado"
+        android:contentDescription=""
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="50dp"
+        android:drawablePadding="10dp"
+        android:textSize="20sp"
+        android:hint="Contraseña"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailRegistro"/>
+
+    <EditText
+        android:id="@+id/emailRegistro"
+        android:layout_width="260dp"
+        android:layout_height="53dp"
+        android:autofillHints="TO DO"
+        android:background="@drawable/text_customizado"
+        android:contentDescription=""
+        android:layout_marginTop="20dp"
+        android:drawablePadding="10dp"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/contraseñaRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/apellidos"/>
+
+    <EditText
+        android:id="@+id/apellidos"
+        android:layout_width="260dp"
+        android:layout_height="53dp"
+        android:autofillHints="TO DO"
+        android:background="@drawable/text_customizado"
+        android:contentDescription=""
+        android:layout_marginTop="20dp"
+        android:drawablePadding="10dp"
+        android:textSize="20sp"
+        android:hint="Apellidos"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/emailRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/nombre"/>
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="260dp"
+        android:layout_height="53dp"
+        android:autofillHints="TO DO"
+        android:background="@drawable/text_customizado"
+        android:contentDescription=""
+        android:layout_marginTop="20dp"
+        android:drawablePadding="10dp"
+        android:hint="Nombre"
+        android:textSize="20sp"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/apellidos"
+        app:layout_constraintTop_toBottomOf="@+id/nombreUsuario"/>
+
+
+    <TextView
+        android:id="@+id/letrasRegistro"
+        android:layout_width="273dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="144dp"
+        android:text="REGISTRAR"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#1C2120"
+        android:textSize="40sp"
+        android:fontFamily="serif-monospace"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nombreUsuario"
+        android:layout_width="260dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="50dp"
+        android:autofillHints="TO DO"
+        android:background="@drawable/text_customizado"
+        android:contentDescription=""
+        android:drawablePadding="10dp"
+        android:hint="Nombre de Usuario"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/letrasRegistro" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="138dp"
+        app:layout_constraintBottom_toTopOf="@+id/letrasRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logonexus" />
+</androidx.constraintlayout.widget.ConstraintLayout>

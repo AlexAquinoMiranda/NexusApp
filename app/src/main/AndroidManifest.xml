@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/logonexus"
+        android:label="@string/nombreApp"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".proyectofinal.ui.eventos.EventosInvitar"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.ui.perfil.PerfilFragment"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Configuracion.Ajustes"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Configuracion.Configuracion"
+            android:exported="true" />
+        <activity
+            android:name=".proyectofinal.Notificacion.Notificaciones"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Contacto.Contacto"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Eventos.Eventos"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Mensajeria.Mensajeria"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Publicacion.SubirPublicacion"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Eventos.CrearEvento"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.ui.eventos.EventosFragment"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Historia.Historia"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Registrar.Registrar"
+            android:exported="false" />
+        <activity
+            android:name=".proyectofinal.Login.Login"
+            android:exported="true"/>
+        <activity
+            android:name=".proyectofinal.Inicio.Inicio"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".proyectofinal.SegundaPantalla"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".proyectofinal.MainActivity"
+            android:exported="false"
+            android:label="@string/nombreApp">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+
+
+    </application>
+
+</manifest>
