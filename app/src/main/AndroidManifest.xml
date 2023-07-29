@@ -42,7 +42,7 @@
             android:name=".proyectofinal.Mensajeria.Mensajeria"
             android:exported="false" />
         <activity
-            android:name=".proyectofinal.Publicacion.SubirPublicacion"
+            android:name=".proyectofinal.Publicacion.SubirHistoria"
             android:exported="false" />
         <activity
             android:name=".proyectofinal.Eventos.CrearEvento"

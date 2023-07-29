@@ -42,7 +42,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Eventos extends AppCompatActivity {
 
-    TextView nombreEvento, creadorEvento, descripcion, nombreUsuarioFoto, countImagenes, noHayImagen;
+    private TextView nombreEvento, creadorEvento, descripcion, nombreUsuarioFoto, countImagenes, noHayImagen;
     static ImageView portadaEvento;
     private ArrayList<Evento> listaEventos;
     private ProgressBar progressBarEvent;
@@ -56,9 +56,7 @@ public class Eventos extends AppCompatActivity {
     public static Uri pathImage;
     private ImageView crearNuevoEvento, imageViewsalir;
     public static Evento eventos;
-
     private ImageView imagenPrincipal, imagenSiguiente, imagenAnterior;
-
 
     private List<EventoImagen> listaDeEventos;
 
@@ -108,7 +106,8 @@ public class Eventos extends AppCompatActivity {
 //            }
 //        }
     }
-    void ocultarNavegacion(){
+
+    void ocultarNavegacion() {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -153,7 +152,7 @@ public class Eventos extends AppCompatActivity {
         //cargar fotos.
         cargarDatosFotos();
 
-        this.imageViewsalir.setOnClickListener(v->{
+        this.imageViewsalir.setOnClickListener(v -> {
             onBackPressed();
         });
     }
@@ -196,7 +195,7 @@ public class Eventos extends AppCompatActivity {
     }
 
     /**
-     *  Método que retrocede lista dinámica de fotos
+     * Método que retrocede lista dinámica de fotos
      */
     void retrocederFoto() {
         if (posicionActual > 0) {
@@ -230,8 +229,8 @@ public class Eventos extends AppCompatActivity {
             System.out.println(imagenActual + " la otrs \n " + imagenSig);
 
             new CargarImagenGlide(imagenActual, imagenPrincipal, progressBarEvent, getApplicationContext());
-            new CargarImagenGlide(imagenAntes, imagenAnterior,progressBarEvent, getApplicationContext());
-            new CargarImagenGlide(imagenSig, imagenSiguiente,progressBarEvent, getApplicationContext());
+            new CargarImagenGlide(imagenAntes, imagenAnterior, progressBarEvent, getApplicationContext());
+            new CargarImagenGlide(imagenSig, imagenSiguiente, progressBarEvent, getApplicationContext());
             new FirebaseCargaImg(usuario.getPerfil(), perfilUsuario);
             nombreUsuarioFoto.setText(usuario.getNombreUsuario());
             String contador = String.valueOf(posicionActual);
@@ -314,6 +313,7 @@ public class Eventos extends AppCompatActivity {
                     listaEventos.add(evento);
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError error) {
                 Log.w("------", "Failed to read value.", error.toException());

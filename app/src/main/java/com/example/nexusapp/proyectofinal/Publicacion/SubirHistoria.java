@@ -40,17 +40,16 @@ import java.util.Locale;
 import java.util.UUID;
 
 /**
- * SubirPublicacion es una clase que abre la galería para seleccionar una foto y posteriormente crear la publicación
- * <p>
- * todo: Cambiar a subirHistoria....
+ * subirHistoria es una clase que abre la galería para seleccionar una foto y posteriormente crear la publicación
+ *
  */
-public class SubirPublicacion extends AppCompatActivity {
+public class SubirHistoria extends AppCompatActivity {
     private FloatingActionButton exit;
     private ActivityResultLauncher<String> pickImageLauncher;
-    Button btnAbrir;
-    ImageView subirImagen;
-    EditText titulo, descripcion;
-    ImageView imageView;
+    private Button btnAbrir;
+    private ImageView subirImagen;
+    private EditText titulo, descripcion;
+    private ImageView imageView;
     private FirebaseController firebase;
     public static Uri pathImage;
     private FirebaseCrudHistoriaDisponible firebaseCrudHistoria;
@@ -90,6 +89,7 @@ public class SubirPublicacion extends AppCompatActivity {
      * Genera un identificador único para la historia y establece la información relacionada.
      * Si ya existe una historia para el usuario actual, se agrega la foto a esa historia y se actualiza en la base de datos.
      * Si no existe una historia para el usuario actual, se crea una nueva historia y se guarda en la base de datos.
+     *
      * @param urlImagen La URL de la imagen a agregar a la publicación.
      */
     void crearPublicacion(String urlImagen) {
@@ -139,11 +139,11 @@ public class SubirPublicacion extends AppCompatActivity {
         if (comprobarExisteHistoria() != null) {
             comprobarExisteHistoria().addFoto(urlImagen, p.getTiempoInicio());
             this.firebaseCrudHistoria.modify(comprobarExisteHistoria(), comprobarExisteHistoria().getUidHistoria());
-            new SubirImagen(SubirPublicacion.pathImage, urlImagen);
+            new SubirImagen(SubirHistoria.pathImage, urlImagen);
             System.out.println(comprobarExisteHistoria().toString());
             System.out.println("se moidficoooooo");
         } else {
-            new SubirImagen(SubirPublicacion.pathImage, urlImagen);
+            new SubirImagen(SubirHistoria.pathImage, urlImagen);
             this.firebaseCrudHistoria.create(p);
             System.out.println("se creoooooooooo");
         }
@@ -151,6 +151,7 @@ public class SubirPublicacion extends AppCompatActivity {
 
     /**
      * Comprueba si existe una historia para el usuario autenticado.
+     *
      * @return La instancia de la historia si existe una para el usuario actual, o null si no hay ninguna.
      */
     Historia comprobarExisteHistoria() {
@@ -187,6 +188,7 @@ public class SubirPublicacion extends AppCompatActivity {
                 }
                 // Agregar la nueva foto a la historia
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Manejar el error
@@ -241,10 +243,16 @@ public class SubirPublicacion extends AppCompatActivity {
      */
     void validarCampos() {
         if (pathImage == null) {
-            Toast.makeText(this, "Cancela y vuelve a intentar seleccionando una foto.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,
+                    "Cancela y vuelve a intentar seleccionando una foto.", Toast.LENGTH_SHORT).show();
             return;
         } else {
-            String titulo = String.valueOf(pathImage).replace("/", "_").replace("//", "_").replace(".", "_").replace(":", "_").replace("%", "_");
+            String titulo = String.valueOf(pathImage)
+                    .replace("/", "_")
+                    .replace("//", "_")
+                    .replace(".", "_")
+                    .replace(":", "_")
+                    .replace("%", "_");
 
             crearPublicacion(titulo);
             abrirVentana(MainActivity.class);

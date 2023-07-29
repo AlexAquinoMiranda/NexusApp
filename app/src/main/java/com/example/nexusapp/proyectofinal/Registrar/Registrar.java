@@ -105,29 +105,35 @@ public class Registrar extends AppCompatActivity {
                 email.getText().toString().equals("")) {
             //datas vacías
             limpiar();
-            Toast.makeText(getApplicationContext(), "Registro incorrecto. rellena todos los campos", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),
+                    "Registro incorrecto. rellena todos los campos", Toast.LENGTH_LONG).show();
             return;
         } else {
             if(validarCorreoElectronico(email.getText().toString()) &&
-                    validarContrasena(password.getText().toString()) && validarNombreUsuario(username.getText().toString())){
+                    validarContrasena(password.getText().toString()) &&
+                    validarNombreUsuario(username.getText().toString())){
 
                 crearUser();
-                Toast.makeText(getApplicationContext(), "Registro correcto. Logueate con tu usuario", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),
+                        "Registro correcto. Logueate con tu usuario", Toast.LENGTH_LONG).show();
                 //abrirLogin();
                 abrirVentana(Login.class);
 
             }else{
                 if (!validarCorreoElectronico(email.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Correo electrónico incorrecto.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Correo electrónico incorrecto.", Toast.LENGTH_LONG).show();
                 }
                 if (!validarContrasena(password.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Contraseña incorrecta. \nIntroduce al menos:\n " +
+                    Toast.makeText(getApplicationContext(),
+                            "Contraseña incorrecta. \nIntroduce al menos:\n " +
                             "-8 carácteres.\n" +
                             "-1 Mayuscula y miniscula.\n" +
                             "-1 Número", Toast.LENGTH_LONG).show();
                 }
                 if (!validarNombreUsuario(username.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Nombre de usuario incorrecto. Debe tener almenos 5 carácteres.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Nombre de usuario incorrecto. Debe tener almenos 5 carácteres.", Toast.LENGTH_LONG).show();
                 }
             }
         }

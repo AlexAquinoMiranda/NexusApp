@@ -61,7 +61,8 @@ public class Login extends AppCompatActivity {
     }
 
     /**
-     * Autenticar usuario es un método que recibe el correo y email y comprueba si existe usuarios con esos datos
+     * Autenticar usuario es un método que recibe el correo
+     * y email y comprueba si existe usuarios con esos datos
      *
      * @param email     email del usuario
      * @param passwordd password del usuario
@@ -77,20 +78,24 @@ public class Login extends AppCompatActivity {
                     Login.users.add(userAux);
                 }
                 Optional<Usuario> usuario = users.stream()
-                        .filter(user_aux -> (user_aux.getEmail().equals(email)) && user_aux.getPassword().equals(passwordd))
+                        .filter(user_aux -> (user_aux.getEmail().equals(email))
+                                && user_aux.getPassword().equals(passwordd))
                         .findFirst();
 
                 if (usuario.isPresent()) {
                     System.out.println("\t ----datos correctos-------");
                     //Publicationes.userglobal = usuario.get();
                     usuarioAutenticado = users.stream()
-                            .filter(user_aux -> (user_aux.getNombre().equals(email) || user_aux.getEmail().equals(email)) && user_aux.getPassword().equals(passwordd))
+                            .filter(user_aux -> (user_aux.getNombre().equals(email)
+                                    || user_aux.getEmail().equals(email))
+                                    && user_aux.getPassword().equals(passwordd))
                             .findFirst().get();
 
                     System.out.println(usuarioAutenticado.toString());
                     abrirVentana(MainActivity.class);
                 } else {
-                    Toast.makeText(getApplicationContext(), "Credenciales Incorrecta. Ingréselas nuevamente", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),
+                            "Credenciales Incorrecta. Ingréselas nuevamente", Toast.LENGTH_SHORT).show();
                     user.setText("");
                     password.setText("");
                 }

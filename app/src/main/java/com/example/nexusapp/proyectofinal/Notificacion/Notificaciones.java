@@ -28,13 +28,12 @@ import java.util.ArrayList;
  * recibe el usuario autenticado
  */
 public class Notificaciones extends AppCompatActivity {
-    DatabaseReference conversationRef;
+    private DatabaseReference conversationRef;
     static FirebaseDatabase database;
     static DatabaseReference notificacionesRef;
     static ArrayList<Notificacion> notificaciones;
-    RecyclerView recyclerView;
-
-    ImageView atras;
+    private RecyclerView recyclerView;
+    private ImageView atras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +46,9 @@ public class Notificaciones extends AppCompatActivity {
         listeners();
     }
 
-    void ocultarNavegacion(){
+    void ocultarNavegacion() {
         View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_IMMERSIVE;
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE;
         decorView.setSystemUiVisibility(uiOptions);
     }
 
@@ -60,22 +57,20 @@ public class Notificaciones extends AppCompatActivity {
      * cuando estas se presionen
      */
     void listeners() {
-
         atras.setOnClickListener(m -> {
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
             finish();
         });
-
     }
 
     /**
      * cargarDatos es un método que rellena el recyclerView de datos.
      */
     void cargarDatos() {
-        recyclerView.setLayoutManager(
-                new LinearLayoutManager(getApplicationContext()));
-        AdapterNotificaciones adapterNotificaciones = new AdapterNotificaciones(Notificaciones.notificaciones, getApplicationContext());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        AdapterNotificaciones adapterNotificaciones =
+                new AdapterNotificaciones(Notificaciones.notificaciones, getApplicationContext());
         recyclerView.setAdapter(adapterNotificaciones);
     }
 
@@ -108,6 +103,7 @@ public class Notificaciones extends AppCompatActivity {
                 }
                 cargarDatos();
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }

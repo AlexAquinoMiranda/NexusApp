@@ -3,8 +3,10 @@ package com.example.nexusapp.proyectofinal;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,17 +48,6 @@ public class MainActivity extends AppCompatActivity {
         notificaciones = findViewById(R.id.notificaciones);
     }
 
-    void prueba() {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        // Suponiendo que tengas un fragment llamado MyFragment
-        PerfilDeUsuario fragment = PerfilDeUsuario.newInstance();
-
-        fragmentTransaction.replace(R.id.perfilDeUsuariosFragment, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
 
     /**
      * listeners es un método en donde realiza acciones de botones
@@ -73,29 +64,42 @@ public class MainActivity extends AppCompatActivity {
             startActivity(i);
             finish();
         });
-        /*buscar.setOnClickListener(v -> {
-            //prueba();
-            Intent i = new Intent(getApplicationContext(), Busqueda.class);
-           startActivity(i);
-            finish();
-        });*/
+
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller,
                                              @NonNull NavDestination destination,
                                              @Nullable Bundle arguments) {
-                if (destination.getId() == R.id.navegacionInicio) {
-                    toolbarText.setText("Nexus-App");
-                } else if (destination.getId() == R.id.navegacionPaneles) {
-                    toolbarText.setText("Nueva Publicación");
-                } else if (destination.getId() == R.id.navegacionPerfil) {
-                    toolbarText.setText(Login.usuarioAutenticado.getNombreUsuario());
-                } else if (destination.getId() == R.id.navegacionBusqueda) {
-                    toolbarText.setText("Busqueda de usuarios");
-                    //   navController.navigate(R.id.navegacionBusqueda);
-                } else {
-                    toolbarText.setText("Nexus-App");
+                int destinationId = navController.getCurrentDestination().getId();
+                switch (destinationId) {
+                    case R.id.navegacionInicio:
+                        toolbarText.setText("Nexus-App");
+                        break;
+                    case R.id.navegacionPaneles:
+                        toolbarText.setText("Nueva Publicación");
+                        break;
+                    case R.id.navegacionPerfil:
+                        toolbarText.setText(Login.usuarioAutenticado.getNombreUsuario());
+                        break;
+                    case R.id.navegacionBusqueda:
+                        toolbarText.setText("Búsqueda de usuarios");
+                        break;
+                    default:
+                        toolbarText.setText("Nexus-App");
+                        break;
                 }
+                  /**  int currentFragmentId = navController.getCurrentDestination().getId();
+
+                    // Comparar con el ID de la ventana que deseas verificar
+                    if (currentFragmentId == R.id.navegacionBusqueda) {
+
+                    } else {
+                        navController.navigate(R.id.navegacionBusqueda);
+                        // El NavController no está navegando a la ventana de búsqueda.
+                        // Puedes realizar aquí otras acciones o comprobar otras condiciones si es necesario.
+                    }*/
+                    //   navController.navigate(R.id.navegacionBusqueda);
+
             }
         });
     }
@@ -109,6 +113,8 @@ public class MainActivity extends AppCompatActivity {
         ocultarNavegacion();
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
+
+
         inicializar();
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -116,20 +122,22 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
 
+
+
         NavigationUI.setupWithNavController(binding.navView, navController);
+
         listeners();
-/**
- View decorView = getWindow().getDecorView();
- int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
- | View.SYSTEM_UI_FLAG_FULLSCREEN;
- decorView.setSystemUiVisibility(uiOptions);**/
+
     }
-    void ocultarNavegacion(){
+
+    void ocultarNavegacion() {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_IMMERSIVE;
         decorView.setSystemUiVisibility(uiOptions);
     }
+
+
 
 }

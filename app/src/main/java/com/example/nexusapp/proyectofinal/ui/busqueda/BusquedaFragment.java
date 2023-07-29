@@ -22,6 +22,7 @@ import com.example.nexusapp.R;
 import com.example.nexusapp.databinding.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * BusquedaFragment es un fragment en donde se realiza busqueda de usuarios en forma de lista y acceder al perfil.
@@ -89,7 +90,8 @@ public class BusquedaFragment extends Fragment {
             this.resultadoFinal.clear();
 
             if (TextUtils.isEmpty(texto)) {
-                Toast.makeText(root.getContext(), "Introduce un datos para realizar la busqueda.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(root.getContext(),
+                        "Introduce un datos para realizar la busqueda.", Toast.LENGTH_SHORT).show();
             } else {
                 //buscar
                 buscarUsuario(texto);
@@ -113,21 +115,47 @@ public class BusquedaFragment extends Fragment {
                 resultadosSimilares.add(usuario);
             }
         }
-        resultadoFinal.addAll(0, resultadosExactos);
+        if (!resultadosExactos.isEmpty()) {
+            resultadoFinal.addAll(0, resultadosExactos);
+        }
+        if (!resultadosSimilares.isEmpty()) {
+            resultadoFinal.addAll(resultadosSimilares);
+        }
 
-        resultadoFinal.addAll(resultadosSimilares);
-        if (!resultadoFinal.isEmpty()) {
+       /** if (!resultadoFinal.isEmpty()) {
             System.out.println("imprimiendo resultados");
             for (Usuario resultado : resultadoFinal) {
                 System.out.println(resultado.toString());
-                if (resultado.getNombre().equals(Login.usuarioAutenticado.getNombre()) && resultado.getNombreUsuario().equals(Login.usuarioAutenticado.getNombreUsuario())) {
+                if (resultado.getNombre().equals(Login.usuarioAutenticado.getNombre())
+                        && resultado.getNombreUsuario().equals(Login.usuarioAutenticado.getNombreUsuario())) {
                     resultadoFinal.remove(resultado);
+                }
+            }
+        } */
+        if (!resultadoFinal.isEmpty()) {
+            System.out.println("imprimiendo resultados");
+
+            Iterator<Usuario> iterator = resultadoFinal.iterator();
+            while (iterator.hasNext()) {
+                Usuario resultado = iterator.next();
+                System.out.println(resultado.toString());
+
+                if (resultado.getNombre().equals(Login.usuarioAutenticado.getNombre())
+                        && resultado.getNombreUsuario().equals(Login.usuarioAutenticado.getNombreUsuario())) {
+                    iterator.remove(); // Utilizamos el iterador para eliminar el elemento
                 }
             }
         }
 
         if (resultadoFinal.isEmpty()) {
-            Toast.makeText(root.getContext(), "No se encontraron resultados.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(root.getContext(),
+                    "No se encontraron resultados.", Toast.LENGTH_SHORT).show();
+            this.resultadosExactos.clear();
+            this.resultadosSimilares.clear();
+            this.resultadoFinal.clear();
+
+            adapter = new AdapterBusqueda(resultadoFinal, root.getContext());
+            this.ressultados.setAdapter(adapter);
         } else {
             adapter = new AdapterBusqueda(resultadoFinal, root.getContext());
             this.ressultados.setAdapter(adapter);

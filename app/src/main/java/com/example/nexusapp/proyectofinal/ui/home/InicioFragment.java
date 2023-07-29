@@ -21,7 +21,7 @@ import com.example.nexusapp.proyectofinal.DTO.Publicacion;
 import com.example.nexusapp.proyectofinal.Firebase.FirebaseCargaImg;
 import com.example.nexusapp.proyectofinal.Firebase.FirebaseController;
 import com.example.nexusapp.proyectofinal.Login.Login;
-import com.example.nexusapp.proyectofinal.Publicacion.SubirPublicacion;
+import com.example.nexusapp.proyectofinal.Publicacion.SubirHistoria;
 import com.example.nexusapp.R;
 import com.example.nexusapp.databinding.InicioBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -87,10 +87,10 @@ public class InicioFragment extends Fragment {
      */
     void eventos() {
         this.addHistoria.setOnClickListener(v -> {
-            abrirVentana(SubirPublicacion.class);
+            abrirVentana(SubirHistoria.class);
         });
         this.addHistoriaPerfil.setOnClickListener(v -> {
-            abrirVentana(SubirPublicacion.class);
+            abrirVentana(SubirHistoria.class);
         });
 
     }

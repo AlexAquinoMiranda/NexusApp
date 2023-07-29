@@ -113,6 +113,7 @@ public class Historia extends AppCompatActivity {
         });
         like.setOnClickListener(v -> {
             eliminarHistoria();
+            Historia.posicionActual=0;
         });
 
         visualizarHistoria();
@@ -134,6 +135,14 @@ public class Historia extends AppCompatActivity {
             posicionActual = 0;
             historiaDelante();
         }
+        if( historiaVisualizar.getFotos().isEmpty()){
+            posicionActual = 0;
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+            finish();
+        }
+
+
     }
 
     /**
@@ -276,7 +285,16 @@ public class Historia extends AppCompatActivity {
             if (posicionActual > historias.size()) {
                 return;
             }
-            String foto = historias.get(posicionActual);//obtengo la foto.
+            String foto = "";
+            try {
+                 foto = historias.get(posicionActual);//obtengo la foto.
+            }catch (IndexOutOfBoundsException e){
+                //todo
+                posicionActual = 0;
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                finish();
+            }
 
             Long finaliza = this.datoHistorias.get(historias.get(posicionActual));//obtengo de fecha de la imagen.
             System.out.println("\n foto a mostrar \n\n " + foto);
